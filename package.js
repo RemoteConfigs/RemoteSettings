@@ -11,17 +11,11 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.7.0.1');
+  api.versionsFrom('1.7.0.1');  
+  api.use(['ecmascript', 'check', 'kingjuli:remote-configs']);
+  api.addFiles(["lib/collections/settings.js"]);
+  api.mainModule('remote-settings.js');
   
-  api.use('ecmascript');
-  api.use(["check"]);
-
-  api.addFiles(["lib/collections/settings.js"], ['client', 'server']);
-  api.mainModule('remote-settings.js', 'client', 'server');
-  
-  api.export("remote", 'client');
-  api.export("remote", 'server');
-
 });
 
 Package.onTest(function(api) {
